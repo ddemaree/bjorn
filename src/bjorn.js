@@ -8,3 +8,5 @@ var Bjorn = {
 
 //= require "bjorn.helpers"
 //= require "bjorn.router"
+//= require "bjorn.anchor_observer"
+//= require "bjorn.shortcuts"

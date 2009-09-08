@@ -7,27 +7,16 @@
 		<script src="../../dist/bjorn.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 			
-			Bjorn.Router.connect("tabs/:tab_id", function(params){
+			$_R.connect("tabs/:tab_id", function(params){
 				$('#tabs > div').hide();
 				$('#tabs > #' + params.tab_id).show();
 				$('#tabs li a').removeClass('selected');
 				$('#tabs li a[href=#tabs/' + params.tab_id + ']').addClass('selected');
 			});
 			
-			Bjorn.Router.invoke("tabs/one");
-		
 			$(document).ready(function(){
-				var lastAnchor = '';
-				
-			  function poll() {
-			    var anchor = (window.location.hash || "").slice(1);
-			    if (anchor != lastAnchor) {
-			      Bjorn.Router.invoke(anchor)
-						lastAnchor = anchor;
-			    }
-			  }
-				
-				setInterval(poll, (0.3 * 1000));
+				$_R.invoke("tabs/one");
+				new Bjorn.AnchorObserver;
 			});
 		</script>
 		<link rel="stylesheet" href="tabs.css" type="text/css" media="screen" title="no title" charset="utf-8">
