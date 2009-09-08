@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Tabs Example</title>
+		<script src="../../spec/lib/jquery-1.2.6.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../dist/bjorn.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			
+			Bjorn.Router.connect("tabs/:tab_id", function(params){
+				$('#tabs > div').hide();
+				$('#tabs > #' + params.tab_id).show();
+				$('#tabs li a').removeClass('selected');
+				$('#tabs li a[href=#tabs/' + params.tab_id + ']').addClass('selected');
+			});
+			
+			Bjorn.Router.invoke("tabs/one");
+		
+			$(document).ready(function(){
+				var lastAnchor = '';
+				
+			  function poll() {
+			    var anchor = (window.location.hash || "").slice(1);
+			    if (anchor != lastAnchor) {
+			      Bjorn.Router.invoke(anchor)
+						lastAnchor = anchor;
+			    }
+			  }
+				
+				setInterval(poll, (0.3 * 1000));
+			});
+		</script>
+		<link rel="stylesheet" href="tabs.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		
+	</head>
+	
+	<body>
+		
+		<div id="tabs">
+			<ul class="clearfix">
+				<li><a href="#tabs/one">One</a></li>
+				<li><a href="#tabs/two">Two</a></li>
+				<li><a href="#tabs/three">Three</a></li>
+				<li><a href="#tabs/four">Four</a></li>
+			</ul>
+			<div id="one">
+				<h2>One</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#tabs/two">Next &rsaquo;</a></p>
+			</div>
+			<div id="two">
+				<h2>Two</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#tabs/three">Next &rsaquo;</a></p>
+			</div>
+			<div id="three">
+				<h2>Three</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#tabs/four">Next &rsaquo;</a></p>
+			</div>
+			<div id="four">
+				<h2>Four</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#tabs/one">Back to start &rsaquo;</a></p>
+			</div>
+		</div>
+	
+	</body>
+</html>

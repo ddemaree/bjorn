@@ -1,0 +1,66 @@
+/* 
+Title:		Reset default browser styles
+Author: 	dan@simplebits.com, based on Eric Meyer's Reset CSS: http://meyerweb.com/eric/tools/css/reset
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	}
+	
+ol, ul {
+	list-style: none;
+	}
+
+blockquote, q {
+	quotes: none;
+	}
+
+:focus {
+	outline: 0;
+	}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+
+
+.clearfix:after, .container:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix, .container {display:inline-block;}
+* html .clearfix, * html .container {height:1%;}
+.clearfix, .container {display:block;}
+.clear {clear:both;}
+
+
+#tabs {
+	width: 500px;
+	padding: 20px;
+}
+
+#tabs ul li {
+	float: left;
+}
+
+#tabs ul a {
+	display: block;
+	padding: 10px;
+	margin-right: 2px;
+	background: #ccc;
+	color: #000;
+}
+
+#tabs ul a.selected {
+	background: #000;
+	color: #fff;
+}
+
+#tabs > div {
+	padding: 10px;
+	border: 1px  solid #000;
+}
