@@ -129,6 +129,26 @@ Of course, if you expect all your anchors to correspond to Bjørn routes, you ca
     
 Bjørn fails gracefully if a route doesn't match, so you can just set this and forget it.
 
+## Using Bjørn in your project, in three simple steps ##
+
+#### 1. Get the latest Bjorn source ####
+
+You'll find it in the `dist` folder of this project. Eventually I'll post release builds to the Downloads section on GitHub, but for now just clone, copy and go.
+
+#### 2. Include it in your HTML page ####
+
+I shouldn't have to tell you how to do this part, but I will anyway:
+
+    <!-- Omitting the type attribute because the
+         cool kids are into HTML 5 and I am cool -->
+    <script src="/yourJSFolder/bjorn.js"></script>
+    
+#### 3. Drink an entire glass of your finest single malt scotch ####
+
+Step 3 is optional to getting Bjørn working, but may improve your experience significantly.
+
+Seriously, though, there's no step 3. Bjørn is written in core JavaScript and doesn't require any other libraries or frameworks to work.
+
 ## Building Bjørn ##
 
 To build Bjørn, you'll need Ruby, RubyGems, and the [Sprockets](http://getsprockets.org/) preprocessor, the latter of which you can install like so:
