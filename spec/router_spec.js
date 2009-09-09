@@ -1,5 +1,29 @@
 Screw.Unit(function(){
 	describe('Bjorn.Router', function(){
+		
+		describe("#draw", function(){
+			before(function() {
+        Bjorn.Router._routes = [];
+      });
+
+			it("should take a callback", function(){
+				Bjorn.Router.draw(function(map){
+					map.connect("/abc", function(){ alert("Hi!"); });
+				});
+				
+				expect(Bjorn.Router._routes.length).to(equal, 1);
+			});
+			
+			it("should allow a bunch of routes to be created", function(){
+				Bjorn.Router.draw(function(map){
+					map.connect("/abc", function(){ alert("Hi!"); });
+					map.connect("/abc/:id", function(p){ alert("The id is: " + p.id); });
+				});
+				
+				expect(Bjorn.Router._routes.length).to(equal, 2);
+			});
+		})
+		
 		describe("#connect", function(){
 			
 			before(function() {

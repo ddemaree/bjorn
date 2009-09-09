@@ -2,6 +2,9 @@
 
 Bjorn.Router = {
 	_routes: [],
+	draw: function(callback){
+		(callback.bind(this))(Bjorn.Router);
+	},
 	connect: function(path, callback){
 		var keys = [];
 		
