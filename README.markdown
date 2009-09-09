@@ -134,6 +134,15 @@ Bjørn fails gracefully if a route doesn't match, so you can just set this and f
 To build Bjørn, you'll need Ruby, RubyGems, and the [Sprockets](http://getsprockets.org/) preprocessor, the latter of which you can install like so:
 
     gem install -r sprockets
+    
+You'll also want to install the `JSMin` gem, as the build task minifies the JS source for fasty-loadingness:
+
+    gem install -r jsmin
+    
+Then, when you're all set, just run the build rake task:
+
+    cd /your/path/to/bjorn
+    rake build
 
 This will compile Bjørn into your `dist` folder. If your copy of the source tree doesn't include `dist/bjorn.js` you'll want to do a build before attempting to run any of the tests.
 
