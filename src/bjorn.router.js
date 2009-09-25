@@ -8,10 +8,10 @@ Bjorn.Router = {
 	connect: function(path, callback){
 		var keys = [];
 		
-		if(path.is_a(RegExp)){
+		if(Bjorn.is_a(path, RegExp)){
 			this._routes.push([path, callback, keys]);
 		}
-		else if(path.is_a(String)){
+		else if(Bjorn.is_a(path, String)){
 			var rs = path.replace(/(:\w+)/gi, function(e){
 				keys.push(e.slice(1));
 				return "([^/?&#]+)";

@@ -2,7 +2,7 @@
 //= require 'bjorn.helpers'
 
 Bjorn.AnchorObserver = function(callback){
-	if(callback && callback.is_a(Function))
+	if(callback && Bjorn.is_a(callback, Function))
 		this.onAnchorChanged = callback.bind(this);
 	else
 		this.onAnchorChanged = this._onAnchorChanged;
