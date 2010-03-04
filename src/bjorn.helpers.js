@@ -5,7 +5,6 @@ Bjorn.toArray = function(iterable){
   while (length--) results[length] = iterable[length];
   return results;
 };
-$BA = Bjorn.toArray;
 
 Bjorn.is_a = function(obj, klass){
 	return !!(obj.constructor == klass);
@@ -13,8 +12,8 @@ Bjorn.is_a = function(obj, klass){
 
 Function.prototype.bind = function() {
 	if (arguments.length < 2 && (typeof arguments[0] == "undefined")) return this;
-	var __method = this, args = $BA(arguments), object = args.shift();
+	var __method = this, args = Bjorn.toArray(arguments), object = args.shift();
 	return function() {
-		return __method.apply(object, args.concat($BA(arguments)));
+		return __method.apply(object, args.concat(Bjorn.toArray(arguments)));
 	};
 };
