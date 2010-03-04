@@ -1,3 +1,6 @@
+desc "Run build and test"
+task :default => [:build, :test]
+
 desc "Build bjorn.js"
 task :build do
   require 'rubygems'
@@ -21,4 +24,9 @@ task :build do
   File.open("dist/bjorn.js","w") do |f|
     f.write(js_source)
   end
+end
+
+desc "Open spec/suite.html in the default browser"
+task :test do
+  sh 'open spec/suite.html'
 end
