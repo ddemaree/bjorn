@@ -3,11 +3,11 @@
 
 Bjorn.AnchorObserver = function(callback){
 	if(callback && Bjorn.is_a(callback, Function))
-		this.onAnchorChanged = callback.bind(this);
+		this.onAnchorChanged = Bjorn.bind(callback, this);
 	else
 		this.onAnchorChanged = this._onAnchorChanged;
 	
-	setInterval(this.poll.bind(this), (0.1 * 1000));
+	setInterval(Bjorn.bind(this.poll, this), (0.1 * 1000));
 };
 
 Bjorn.AnchorObserver.prototype = {

@@ -3,7 +3,7 @@
 Bjorn.Router = {
 	_routes: [],
 	draw: function(callback){
-		(callback.bind(this))(Bjorn.Router);
+		(Bjorn.bind(callback, this))(Bjorn.Router);
 	},
 	connect: function(path, callback){
 		var keys = [];
@@ -51,4 +51,4 @@ Bjorn.Router = {
 	}
 };
 
-$B = Bjorn.Router.connect.bind(Bjorn.Router);
+$B = Bjorn.bind(Bjorn.Router.connect, Bjorn.Router);

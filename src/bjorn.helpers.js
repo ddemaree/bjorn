@@ -10,10 +10,11 @@ Bjorn.is_a = function(obj, klass){
 	return !!(obj.constructor == klass);
 };
 
-Function.prototype.bind = function() {
-	if (arguments.length < 2 && (typeof arguments[0] == "undefined")) return this;
-	var __method = this, args = Bjorn.toArray(arguments), object = args.shift();
+Bjorn.bind = function() {
+	if (arguments.length < 3 && (typeof arguments[1] == "undefined"))
+		return arguments[0];
+	var args = Bjorn.toArray(arguments), fn = args.shift(), object = args.shift();
 	return function() {
-		return __method.apply(object, args.concat(Bjorn.toArray(arguments)));
+		return fn.apply(object, args.concat(Bjorn.toArray(arguments)));
 	};
 };
