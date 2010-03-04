@@ -18,7 +18,7 @@ Screw.Unit(function(){
 			});
 			
 			it("should identify functions", function(){
-				var f = function(){ return "Hi" };
+				var f = function(){ return "Hi"; };
 				expect( Bjorn.is_a(f, Function) ).to(be_true);
 			});
 			

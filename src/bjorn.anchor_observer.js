@@ -21,4 +21,4 @@ Bjorn.AnchorObserver.prototype = {
 			this.onAnchorChanged( { from:this.lastAnchor, to:anchor } );
 		this.lastAnchor = anchor;
 	}
-}
+};

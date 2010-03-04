@@ -22,7 +22,7 @@ Screw.Unit(function(){
 				
 				expect(Bjorn.Router._routes.length).to(equal, 2);
 			});
-		})
+		});
 		
 		describe("#connect", function(){
 			
@@ -31,12 +31,12 @@ Screw.Unit(function(){
       });
 			
 			it("should append a new route", function(){
-				Bjorn.Router.connect("abc", function(){ return "123"; })
+				Bjorn.Router.connect("abc", function(){ return "123"; });
 				expect(Bjorn.Router._routes.length).to(equal, 1);
 			});
 			
 			it("should translate a string route to a RegExp", function(){
-				Bjorn.Router.connect("abc/:id", function(){ return "123"; })
+				Bjorn.Router.connect("abc/:id", function(){ return "123"; });
 				
 				var firstRoute = Bjorn.Router._routes[0];
 				expect( firstRoute[0].constructor ).to(equal, RegExp);
@@ -49,7 +49,7 @@ Screw.Unit(function(){
 			});
 			
 			it("should store named keys from a string route", function(){
-				Bjorn.Router.connect("abc/:id", function(){ return "123"; })
+				Bjorn.Router.connect("abc/:id", function(){ return "123"; });
 				
 				var firstRoute = Bjorn.Router._routes[0];
 				expect( firstRoute[2] ).to_not(be_null);
@@ -90,7 +90,7 @@ Screw.Unit(function(){
 				var result;
 				Bjorn.Router.connect("path", function(p){
 					if(p.memo) result = p.memo;
-				})
+				});
 				
 				Bjorn.Router.invoke("path", "hi there");
 				expect( result ).to(equal, "hi there");
