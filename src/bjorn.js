@@ -27,4 +27,5 @@
 //= require "bjorn.helpers"
 //= require "bjorn.router"
 //= require "bjorn.anchor_observer"
+//= require "bjorn.anchor_iframe"
 //= require "bjorn.shortcuts"
