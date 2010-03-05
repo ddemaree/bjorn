@@ -17,7 +17,7 @@
 					keys.push(e.slice(1));
 					return "([^/?&#]+)";
 				});
-				var pattern = new RegExp("^" + rs + "$");
+				var pattern = new RegExp("^" + rs + "/?$");
 				this._routes.push([pattern, callback, keys]);
 			}
 		},
@@ -43,7 +43,7 @@
 				
 				if(namedParams.length > 0){
 					for(var ii = 0, length = namedParams.length; ii < length; ii++)
-						params[namedParams[ii]] = matches[ii];				
+						params[namedParams[ii]] = matches[ii];
 				}
 				
 				params.matchedPath = path;
