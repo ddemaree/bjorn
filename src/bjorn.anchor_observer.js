@@ -12,15 +12,20 @@
 	};
 	
 	Bjorn.AnchorObserver.prototype = {
+		anchor: '',
 		lastAnchor: '',
 		_onAnchorChanged: function(changes){
 			Bjorn.Router.invoke(changes.to);
 		},
 		poll: function(){
-			var anchor = (window.location.hash || "").slice(1);
-			if(anchor != this.lastAnchor)
+			var href = window.location.href;
+			var anchorIndex = href.indexOf('#');
+			var anchor = (anchorIndex >= 0) ? href.substr(anchorIndex + 1) : '';
+			if (anchor != this.anchor) {
+				this.lastAnchor = this.anchor;
+				this.anchor = anchor;
 				this.onAnchorChanged( { from:this.lastAnchor, to:anchor } );
-			this.lastAnchor = anchor;
+			}
 		}
 	};
 })(Bjorn);
